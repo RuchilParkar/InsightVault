@@ -185,7 +185,5 @@ The goal is to transform saved content into a personal knowledge system that rem
 ## Author
 
 Ruchil Parkar
-
 B.Tech Electronics & Computer Science Engineering
-
 Passionate about Full Stack Development, AI Applications, and Building Real-World Solutions.
