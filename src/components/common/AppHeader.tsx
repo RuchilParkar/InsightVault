@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, Pressable } from 'react-native';
 import { Settings } from 'lucide-react-native';
 import { useRouter } from 'expo-router';
 
@@ -17,14 +17,15 @@ export function AppHeader({ title, showSettings = false }: AppHeaderProps) {
         {title}
       </Text>
       {showSettings && (
-        <TouchableOpacity 
+        <Pressable 
           onPress={() => router.push('/settings')}
-          className="p-2 bg-surface rounded-full border border-border"
+          android_ripple={{ color: 'rgba(255, 255, 255, 0.2)', borderless: true, radius: 20 }}
+          className="p-2 bg-card rounded-full border border-border overflow-hidden"
           accessibilityRole="button"
           accessibilityLabel="Settings"
         >
           <Settings color="#F8FAFC" size={20} strokeWidth={2.5} />
-        </TouchableOpacity>
+        </Pressable>
       )}
     </View>
   );

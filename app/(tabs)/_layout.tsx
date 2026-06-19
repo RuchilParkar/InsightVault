@@ -7,19 +7,25 @@ export default function TabLayout() {
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
-          backgroundColor: '#111827',
-          borderTopColor: '#1E293B',
-          height: 60,
-          paddingBottom: 8,
-          paddingTop: 8,
+          position: 'absolute',
+          bottom: 16,
+          left: 16,
+          right: 16,
+          elevation: 0,
+          backgroundColor: '#1F2937', // matching new card color
+          borderRadius: 24,
+          height: 64,
+          borderWidth: 1,
+          borderColor: '#334155', // matching new border color
+          shadowColor: '#000',
+          shadowOffset: { width: 0, height: 4 },
+          shadowOpacity: 0.3,
+          shadowRadius: 8,
+          paddingBottom: 0, // removed padding for absolute centering
         },
-        tabBarActiveTintColor: '#4F46E5',
+        tabBarShowLabel: false,
+        tabBarActiveTintColor: '#38BDF8', // new primary color
         tabBarInactiveTintColor: '#94A3B8',
-        tabBarLabelStyle: {
-          fontFamily: 'Inter',
-          fontSize: 11,
-          fontWeight: '500',
-        },
       }}
     >
       <Tabs.Screen

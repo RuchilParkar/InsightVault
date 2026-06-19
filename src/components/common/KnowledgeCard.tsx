@@ -1,6 +1,6 @@
 // src/components/common/KnowledgeCard.tsx
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, Pressable } from 'react-native';
 import { Link2, Sparkles, Folder, Image as ImageIcon } from 'lucide-react-native';
 import Animated, { FadeInUp } from 'react-native-reanimated';
 import { KnowledgeItem } from '../../types/schemas';
@@ -29,9 +29,9 @@ export function KnowledgeCard({ item, index }: KnowledgeCardProps) {
       entering={FadeInUp.delay(index * 100).springify().damping(14)}
       className="mb-4"
     >
-      <TouchableOpacity 
-        activeOpacity={0.8}
+      <Pressable 
         onPress={() => router.push(`/knowledge/${item.id}`)}
+        android_ripple={{ color: 'rgba(255, 255, 255, 0.1)', borderless: false }}
         className="bg-card rounded-2xl border border-border overflow-hidden"
         accessibilityRole="button"
         accessibilityLabel={`View details for ${item.title}`}
@@ -60,7 +60,7 @@ export function KnowledgeCard({ item, index }: KnowledgeCardProps) {
               {item.title}
             </Text>
             {item.isFavorite && (
-              <Sparkles color="#4F46E5" size={18} />
+              <Sparkles color="#38BDF8" size={18} />
             )}
           </View>
 
@@ -92,7 +92,7 @@ export function KnowledgeCard({ item, index }: KnowledgeCardProps) {
             <View className="flex-row items-center space-x-3">
               {item.domain && (
                 <View className="flex-row items-center bg-surface px-2 py-1 rounded-md">
-                  <Link2 color="#06B6D4" size={14} />
+                  <Link2 color="#818CF8" size={14} />
                   <Text className="text-accent text-xs font-inter ml-1">{item.domain}</Text>
                 </View>
               )}
@@ -102,7 +102,7 @@ export function KnowledgeCard({ item, index }: KnowledgeCardProps) {
             </Text>
           </View>
         </View>
-      </TouchableOpacity>
+      </Pressable>
     </Animated.View>
   );
 }
