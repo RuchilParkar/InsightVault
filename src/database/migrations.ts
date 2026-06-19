@@ -1,6 +1,6 @@
 // src/database/migrations.ts
 import * as SQLite from 'expo-sqlite';
-import * as FileSystem from 'expo-file-system';
+import * as FileSystem from 'expo-file-system/legacy';
 import { logger } from '../utils/logger';
 
 const CURRENT_SCHEMA_VERSION = 1;
@@ -151,7 +151,8 @@ export async function runMigrations(db: SQLite.SQLiteDatabase, dbName: string) {
         await migration.up(db);
         
         // Update version
-        await db.runAsync(`UPDATE schema_version SET version = ?`, [migration.version]);
+        await db.execAsync(`DELETE FROM schema_version`);
+        await db.runAsync(`INSERT INTO schema_version (version) VALUES (?)`, [migration.version]);
         logger.info('DATABASE', `Successfully migrated to version ${migration.version}`);
       }
     }
